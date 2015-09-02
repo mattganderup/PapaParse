@@ -988,6 +988,12 @@ var UNPARSE_TESTS = [
 		expected: 'Col1,Col2,Col3\r\na,b,c\r\nd,e,f'
 	},
 	{
+		description: "Array of objects (header configured off)",
+		input: [{ "Col1": "a", "Col2": "b", "Col3": "c" }, { "Col1": "d", "Col2": "e", "Col3": "f" }],
+		config: {header: false},
+		expected: 'a,b,c\r\nd,e,f'
+	},
+	{
 		description: "With header row, missing a field in a row",
 		input: [{ "Col1": "a", "Col2": "b", "Col3": "c" }, { "Col1": "d", "Col3": "f" }],
 		expected: 'Col1,Col2,Col3\r\na,b,c\r\nd,,f'

@@ -235,6 +235,9 @@
 		/** newline character(s) */
 		var _newline = "\r\n";
 
+		/** write header row */
+		var _header = true;
+
 		unpackConfig();
 
 		if (typeof _input === 'string')
@@ -288,6 +291,9 @@
 
 			if (typeof _config.newline === 'string')
 				_newline = _config.newline;
+
+			if (typeof _config.header === 'boolean')
+				_header = _config.header;
 		}
 
 
@@ -316,7 +322,7 @@
 			var dataKeyedByField = !(data[0] instanceof Array);
 
 			// If there a header row, write it first
-			if (hasHeader)
+			if (hasHeader && _header)
 			{
 				for (var i = 0; i < fields.length; i++)
 				{
